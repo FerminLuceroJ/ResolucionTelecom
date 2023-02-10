@@ -21,6 +21,10 @@ object facturado {
 	
 	var facturado
 	
+	method puedeDescargar(unMonto) {
+		return true
+	}
+	
 	method recargo(unMonto) {
 		return unMonto
 	} 

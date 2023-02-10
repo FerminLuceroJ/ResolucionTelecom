@@ -34,5 +34,7 @@ object empresaComercializacion {
 		clientes.forEach({ unCliente => unCliente.forzarDescarga(unaDescarga)})
 	}
 	
-	// 
+	// Si no tiene saldo insuficiente en el caso que sea prepago entraria en una excepcion
+	// devolviendo un error, en el caso que sea un usuario con plan facturado no habria problema
+	
 }

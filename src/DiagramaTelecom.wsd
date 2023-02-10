@@ -1,0 +1,111 @@
+@startuml DiagramaTelecom
+
+object EmpresaTelecomunicacion {
+
+    clientes 
+    productos
+    ---
+    precioDescargaCliente(unaDescarga, unCliente)
+    registrarDescarga(unaDescarga, unCliente)
+    cantidadDescargasClienteEnMes(unCliente)
+    obtenerContenidosDeClienteEnFecha(unCliente, unaFecha)
+    forzarDescargaClientes(unaDescarga)
+    
+}
+
+class Cliente {
+
+    tipoEmpresa
+    plan 
+    descargas 
+    cobroCompania(unMonto)
+    cobroPlan(unMonto)
+    puedeDescargar(unMonto)
+    registrarDescarga(unProducto)
+    cobrar(unMonto)
+    cantidadDescargasEnElMes()
+    filtrarDescargasPorFecha(unaFecha)
+    forzarDescarga(unaDescarga)
+
+}
+class Descarga {
+
+    fecha 
+    producto
+    conocerPrecioProducto(unCliente)
+    montoDerechoAutor()
+    esDelMesActual()
+
+}
+interface Producto {
+
+    montoDerechoAutor()
+
+}
+class Ringtone {
+
+    duracion
+    precioPorMinuto
+    montoDerechoAutor()
+
+}
+class Chiste {
+
+    montoFijo
+    cantidadCaracteres
+    montoDerechoAutor()
+
+}
+class Juego {
+
+    monto  
+    montoDerechoAutor()
+
+}
+interface Plan
+object Prepago {
+
+    recargo 
+    saldo 
+    recargo(unMonto)
+    puedeDescargar(unMonto)
+    cobrar(unMonto)
+
+}
+object Facturado {
+
+    facturado 
+    recargo(unMonto)
+    cobrar(unMonto)
+    puedeDescargar(unMonto)
+
+}
+
+class Empresa {
+
+    cobrar(unMonto)
+}
+class Nacional
+class Extranjera {
+
+    impuesto
+    cobrar(unMonto)
+}
+
+EmpresaTelecomunicacion -->"*" Cliente: clientes
+EmpresaTelecomunicacion -->"*" Producto: productos
+Cliente -->"*" Descarga: descargas
+Descarga --> Producto
+Cliente --> Plan
+Plan <|.. Prepago
+Plan <|.. Facturado
+Cliente --> Empresa
+Empresa <|-- Nacional
+Empresa <|-- Extranjera
+Producto <|-- Ringtone
+Producto <|-- Chiste
+Producto <|-- Juego
+
+
+
+@enduml
