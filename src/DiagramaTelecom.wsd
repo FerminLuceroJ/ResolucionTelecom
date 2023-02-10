@@ -63,7 +63,8 @@ class Juego {
 
 }
 interface Plan
-object Prepago {
+
+class Prepago {
 
     recargo 
     saldo 
@@ -72,7 +73,7 @@ object Prepago {
     cobrar(unMonto)
 
 }
-object Facturado {
+class Facturado {
 
     facturado 
     recargo(unMonto)
@@ -102,9 +103,9 @@ Plan <|.. Facturado
 Cliente --> Empresa
 Empresa <|-- Nacional
 Empresa <|-- Extranjera
-Producto <|-- Ringtone
-Producto <|-- Chiste
-Producto <|-- Juego
+Producto <|.. Ringtone
+Producto <|.. Chiste
+Producto <|.. Juego
 
 
 

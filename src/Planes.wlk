@@ -1,4 +1,4 @@
-object prepago {
+class Prepago {
 	
 	const recargo = 0.1
 	var saldo
@@ -17,7 +17,7 @@ object prepago {
 	}
 }
 
-object facturado {
+class Facturado {
 	
 	var facturado
 	
